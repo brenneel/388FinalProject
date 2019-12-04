@@ -63,6 +63,21 @@ int main()
     gpio_mode(gpio, OUTPUT);
 
     while (1) {
+        //taking in distance value from lidar
+            if ('Y' == ser_read(0) && 'Y' == ser_read(0)) {
+            // YOUR CODE HERE
+            dist_L = ser_read(0);
+            dist_H = ser_read(0);
+            dist = dist_H;
+            dist << 8;
+            dist =dist + dist_L;
+            //printf("%d", dist);
+
+            //clears the last 5 bytes from ser_read()
+            for(int i = 0; i<5; i++){
+               int temp =  ser_read(0);
+            }
+        }
         // YOUR CODE HERE
         if(ser_isready(1)){
             //turn LED off here
